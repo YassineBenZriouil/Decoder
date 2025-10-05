@@ -1,4 +1,4 @@
-export type CipherType = 'shifter' | 'caesar' | 'reverse' | 'rot13' | 'atbash' | string;
+export type CipherType = 'shifter' | 'caesar' | 'reverse' | 'rot13' | 'atbash' | 'morse' | string;
 
 export interface CustomCipher {
   name: string;
@@ -12,8 +12,25 @@ export const cipherDescriptions: Record<string, string> = {
   caesar: "Shifts each letter by 3 positions in the alphabet",
   reverse: "Reverses the entire text",
   rot13: "Rotates each letter by 13 positions (A↔N, B↔O, etc.)",
-  atbash: "Reverses the alphabet (A↔Z, B↔Y, etc.)"
+  atbash: "Reverses the alphabet (A↔Z, B↔Y, etc.)",
+  morse: "Converts text to/from morse code (· − / for letters/words)"
 };
+
+const morseCode: Record<string, string> = {
+  'a': '·−', 'b': '−···', 'c': '−·−·', 'd': '−··', 'e': '·',
+  'f': '··−·', 'g': '−−·', 'h': '····', 'i': '··', 'j': '·−−−',
+  'k': '−·−', 'l': '·−··', 'm': '−−', 'n': '−·', 'o': '−−−',
+  'p': '·−−·', 'q': '−−·−', 'r': '·−·', 's': '···', 't': '−',
+  'u': '··−', 'v': '···−', 'w': '·−−', 'x': '−··−', 'y': '−·−−',
+  'z': '−−··', '0': '−−−−−', '1': '·−−−−', '2': '··−−−', '3': '···−−',
+  '4': '····−', '5': '·····', '6': '−····', '7': '−−···', '8': '−−−··',
+  '9': '−−−−·', ' ': '/'
+};
+
+const reverseMorseCode: Record<string, string> = Object.entries(morseCode).reduce((acc, [key, val]) => {
+  acc[val] = key;
+  return acc;
+}, {} as Record<string, string>);
 
 // Learn pattern from example
 export const learnCipherFromExample = (original: string, encoded: string): CustomCipher | null => {
@@ -102,6 +119,11 @@ export const encode = (text: string, cipher: CipherType, customCipher?: CustomCi
         return char;
       }).join('');
       
+    case 'morse':
+      return text.toLowerCase().split('').map(char => 
+        morseCode[char] || char
+      ).join(' ').replace(/\/ /g, ' / ');
+      
     default:
       return text;
   }
@@ -141,6 +163,13 @@ export const decode = (text: string, cipher: CipherType, customCipher?: CustomCi
         }
         return char;
       }).join('');
+      
+    case 'morse':
+      return text.split(' ')
+        .filter(code => code)
+        .map(code => reverseMorseCode[code] || code)
+        .join('')
+        .replace(/\//g, ' ');
       
     case 'reverse':
     case 'rot13':

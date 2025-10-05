@@ -31,7 +31,7 @@ const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isCombineMode, setIsCombineMode] = useState(false);
 
-  const baseCiphers: CipherType[] = ["shifter", "caesar", "reverse", "rot13", "atbash"];
+  const baseCiphers: CipherType[] = ["shifter", "caesar", "reverse", "rot13", "atbash", "morse"];
 
   useEffect(() => {
     setCustomCiphers(loadCustomCiphers());

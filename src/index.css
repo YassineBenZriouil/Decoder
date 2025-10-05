@@ -68,6 +68,96 @@ All colors MUST be HSL.
     --input: 0 0% 20%;
     --ring: 0 0% 95%;
   }
+
+  .pitch-black {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 0 0% 90%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 0 0% 100%;
+  }
+
+  .ocean {
+    --background: 200 50% 8%;
+    --foreground: 200 10% 95%;
+
+    --card: 200 40% 12%;
+    --card-foreground: 200 10% 95%;
+
+    --popover: 200 40% 12%;
+    --popover-foreground: 200 10% 95%;
+
+    --primary: 190 80% 50%;
+    --primary-foreground: 200 50% 5%;
+
+    --secondary: 200 30% 20%;
+    --secondary-foreground: 200 10% 95%;
+
+    --muted: 200 30% 20%;
+    --muted-foreground: 200 10% 65%;
+
+    --accent: 180 70% 60%;
+    --accent-foreground: 200 50% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 200 30% 25%;
+    --input: 200 30% 25%;
+    --ring: 190 80% 50%;
+  }
+
+  .forest {
+    --background: 140 30% 8%;
+    --foreground: 140 10% 95%;
+
+    --card: 140 25% 12%;
+    --card-foreground: 140 10% 95%;
+
+    --popover: 140 25% 12%;
+    --popover-foreground: 140 10% 95%;
+
+    --primary: 130 60% 45%;
+    --primary-foreground: 140 30% 5%;
+
+    --secondary: 140 20% 18%;
+    --secondary-foreground: 140 10% 95%;
+
+    --muted: 140 20% 18%;
+    --muted-foreground: 140 10% 65%;
+
+    --accent: 120 50% 55%;
+    --accent-foreground: 140 30% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 140 20% 22%;
+    --input: 140 20% 22%;
+    --ring: 130 60% 45%;
+  }
 }
 
 @layer base {
